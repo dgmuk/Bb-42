@@ -1,1 +1,327 @@
-1
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финальный отчёт по программе Body Balance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Исправление для Google Sites */
+        html, body {
+            height: auto !important;
+            min-height: 1px !important;
+            overflow: visible !important; 
+        }
+
+        /* Анимация для плавного появления блоков */
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Стилизация радио-кнопок */
+        .form-radio {
+            appearance: none; -webkit-appearance: none;
+            width: 1.5rem; height: 1.5rem;
+            border: 2px solid #4b5563;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+        }
+        .form-radio:checked {
+            border-color: #2dd4bf; /* teal-400 */
+        }
+        .form-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.75rem; height: 0.75rem;
+            background-color: #2dd4bf; /* teal-400 */
+            border-radius: 50%;
+        }
+        .form-radio:checked ~ span {
+            color: #2dd4bf; /* teal-400 */
+        }
+        
+        /* Стилизация текстовых полей */
+        .form-textarea {
+            background-color: #374151; border: 1px solid #4b5563;
+            border-radius: 0.5rem; padding: 0.75rem; width: 100%;
+            color: #d1d5db; transition: all 0.2s;
+            min-height: 100px; resize: vertical;
+        }
+        .form-textarea:focus {
+            outline: none; border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+        }
+
+        /* АНИМАЦИЯ МЕРЦАНИЯ ДЛЯ КНОПОК */
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: translateX(-150%);
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-150%);
+            }
+            50% {
+                transform: translateX(250%);
+            }
+            100% {
+                transform: translateX(250%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div id="main-container" class="container mx-auto max-w-3xl p-4 sm:p-8">
+        
+        <!-- HERO SECTION -->
+        <header class="text-center my-12 sm:my-20 fade-in-item">
+            <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
+                ПРОГРАММА ЗАКОНЧЕНА. <br class="hidden sm:block"> ТВОЯ ТРАНСФОРМАЦИЯ - НЕТ.
+            </h1>
+            <p class="mt-4 text-xl text-gray-400">Инструкция по закреплению результата и выходу на новый уровень</p>
+        </header>
+        
+        <!-- Вступительный блок -->
+        <div class="bg-gray-800 rounded-2xl p-6 mb-12 text-center fade-in-item" style="animation-delay: 100ms;">
+             <p class="text-lg text-gray-300">Поздравляю! Ты прошёл путь, который требует не только дисциплины, но и зрелости. Теперь важно зафиксировать, что ты получил, что изменилось — и как ты хочешь двигаться дальше.</p>
+        </div>
+
+        <!-- Блоки с вопросами -->
+        <main class="space-y-8">
+            
+            <!-- Блок 1: Общее состояние -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 200ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 1. Общее состояние</h3>
+                <div class="space-y-6">
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Как ты ощущаешь себя сейчас по сравнению с началом?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="general_feeling" value="Энергии стало больше, я стал увереннее" class="form-radio mr-3"><span class="transition-colors">Энергии стало больше, я стал увереннее</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="general_feeling" value="Есть сдвиги, но пока неустойчиво" class="form-radio mr-3"><span class="transition-colors">Есть сдвиги, но пока неустойчиво</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="general_feeling" value="Ощущаю усталость, но понимаю, зачем это было" class="form-radio mr-3"><span class="transition-colors">Ощущаю усталость, но понимаю, зачем это было</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="general_feeling" value="Почти не чувствую разницы" class="form-radio mr-3"><span class="transition-colors">Почти не чувствую разницы</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Как изменилась твоя система питания?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_system" value="Полностью перестроилась, стал есть осознанно" class="form-radio mr-3"><span class="transition-colors">Полностью перестроилась, стал есть осознанно</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_system" value="На 70–80% встроена, но иногда откатываюсь" class="form-radio mr-3"><span class="transition-colors">На 70–80% встроена, но иногда откатываюсь</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_system" value="Ещё нестабильна, нужна поддержка" class="form-radio mr-3"><span class="transition-colors">Ещё нестабильна, нужна поддержка</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_system" value="Почти не внедрилась" class="form-radio mr-3"><span class="transition-colors">Почти не внедрилась</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Что изменилось в твоём отношении к тренировкам?</p>
+                         <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="training_attitude" value="Я встроил их в жизнь и продолжаю" class="form-radio mr-3"><span class="transition-colors">Я встроил их в жизнь и продолжаю</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="training_attitude" value="Привык, но нужна внешняя опора" class="form-radio mr-3"><span class="transition-colors">Привык, но нужна внешняя опора</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="training_attitude" value="Всё ещё через «надо»" class="form-radio mr-3"><span class="transition-colors">Всё ещё через «надо»</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="training_attitude" value="Без системы — не держу ритм" class="form-radio mr-3"><span class="transition-colors">Без системы — не держу ритм</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 2: Осознания -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 300ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 2. Осознания и внутренние изменения</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label for="self_discovery" class="font-semibold text-lg">Что ты понял о себе за эти 8 недель?</label>
+                        <textarea id="self_discovery" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                     <div>
+                        <label for="emotions_handled" class="font-semibold text-lg">Какие эмоции ты научился не заедать, а проживать?</label>
+                        <textarea id="emotions_handled" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                     <div>
+                        <label for="key_principle" class="font-semibold text-lg">Какая установка/внутренний принцип стал для тебя опорой?</label>
+                        <textarea id="key_principle" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 3: Прогресс -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 400ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 3. Прогресс и факты</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label for="biggest_result" class="font-semibold text-lg">Что ты считаешь своим самым большим результатом (не обязательно в килограммах)?</label>
+                        <textarea id="biggest_result" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                    <div>
+                        <label for="first_time" class="font-semibold text-lg">Что ты сделал впервые или впервые удержал так долго?</label>
+                        <textarea id="first_time" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                    <div>
+                        <label for="advice_to_self" class="font-semibold text-lg">Что ты бы сказал себе в начале пути, если мог бы вернуться на 8 недель назад?</label>
+                        <textarea id="advice_to_self" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 4: Фото -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item text-center" style="animation-delay: 500ms;">
+                <h3 class="font-bold text-2xl text-white mb-2">🔹 4. Фото и замеры</h3>
+                <p class="text-gray-400">📸 Фото и замеры занеси в рабочий дневник, они фиксируются отдельно. Это важно не только для визуального сравнения, но и для осознания пути.</p>
+                 <p class="mt-3 font-semibold text-teal-400">Даже если результат “не идеальный” — он твой, и он зафиксирован.</p>
+            </div>
+
+            <!-- Блок 5: Что дальше? -->
+            <div class="bg-amber-900/20 border-2 border-amber-500 rounded-2xl p-6 fade-in-item" style="animation-delay: 600ms;">
+                <h3 class="font-bold text-2xl text-white mb-6 text-center">🔹 5. Что дальше?</h3>
+                <div class="space-y-6">
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Ты хочешь продолжить работу под моим сопровождением?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="next_step" value="Да, хочу продолжать в формате личного ведения" class="form-radio mr-3"><span class="transition-colors">Да, хочу продолжать в формате личного ведения</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="next_step" value="Хочу перейти в фазу поддержания с минимальным контролем" class="form-radio mr-3"><span class="transition-colors">Хочу перейти в фазу поддержания с минимальным контролем</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="next_step" value="Думаю справляться сам, но буду следить за обновлениями" class="form-radio mr-3"><span class="transition-colors">Думаю справляться сам, но буду следить за обновлениями</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="next_step" value="Пока не готов продолжать, но не исключаю позже" class="form-radio mr-3"><span class="transition-colors">Пока не готов продолжать, но не исключаю позже</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="next_format" class="font-semibold text-lg">Напиши, в каком формате ты хотел бы видеть продолжение (если хочешь):</label>
+                        <textarea id="next_format" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Кнопки и заключение -->
+        <div class="mt-10 text-center text-gray-400 space-y-4 fade-in-item" style="animation-delay: 700ms;">
+             <div class="bg-blue-900/20 border-l-4 border-blue-500 text-blue-200 p-4 rounded-r-lg text-left" role="alert">
+                <p class="font-bold">✅ После заполнения скопируйте ответы и отправьте тренеру на проверку!</p>
+            </div>
+            <div class="pt-4">
+                <button id="copy-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500/50 disabled:bg-gray-600 shimmer-btn">
+                    Скопировать ответы для тренера
+                </button>
+            </div>
+            <div class="pt-4 mt-4">
+                 <a href="https://sites.google.com/view/ety-41/" target="_blank" class="inline-block bg-amber-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-amber-700 transition-colors shadow-lg focus:outline-none focus:ring-4 focus:ring-amber-500/50 shimmer-btn">
+                    Узнать программу продления
+                </a>
+            </div>
+        </div>
+        
+        <div class="text-center py-10 fade-in-item" style="animation-delay: 800ms;">
+            <p class="text-xl text-gray-400 italic">📍 Это не конец. Это новая точка. Ты стал человеком, который может, делает и идёт до конца. Я горжусь тобой. И если ты готов — мы идём дальше вместе.</p>
+        </div>
+
+        <!-- Подвал -->
+        <footer class="text-center mt-12 border-t border-gray-700 pt-6">
+            <p class="text-sm text-gray-500">&copy; 2025 г. Все права защищены. Специально для проекта Body balance.</p>
+        </footer>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('main-container');
+            const copyButton = document.getElementById('copy-btn');
+
+            copyButton.addEventListener('click', () => {
+                let reportText = "📝 Финальный отчёт по программе Body Balance\n\n";
+
+                const getAnswer = (selector, type) => {
+                    if (type === 'radio') {
+                        const checked = document.querySelector(`input[name="${selector}"]:checked`);
+                        return checked ? checked.value : "Нет ответа";
+                    } else if (type === 'textarea') {
+                        const element = document.getElementById(selector);
+                        return element.value.trim() || "Нет ответа";
+                    }
+                    return "Ошибка";
+                };
+
+                reportText += "🔹 1. Общее состояние\n";
+                reportText += `Ощущения сейчас: ${getAnswer('general_feeling', 'radio')}\n`;
+                reportText += `Система питания: ${getAnswer('nutrition_system', 'radio')}\n`;
+                reportText += `Отношение к тренировкам: ${getAnswer('training_attitude', 'radio')}\n\n`;
+
+                reportText += "🔹 2. Осознания и внутренние изменения\n";
+                reportText += `Что понял о себе: ${getAnswer('self_discovery', 'textarea')}\n`;
+                reportText += `Эмоции, которые научился проживать: ${getAnswer('emotions_handled', 'textarea')}\n`;
+                reportText += `Ключевой принцип-опора: ${getAnswer('key_principle', 'textarea')}\n\n`;
+
+                reportText += "🔹 3. Прогресс и факты\n";
+                reportText += `Самый большой результат: ${getAnswer('biggest_result', 'textarea')}\n`;
+                reportText += `Что сделал/удержал впервые: ${getAnswer('first_time', 'textarea')}\n`;
+                reportText += `Совет себе в прошлом: ${getAnswer('advice_to_self', 'textarea')}\n\n`;
+
+                reportText += "🔹 5. Что дальше?\n";
+                reportText += `Хочет ли продолжить: ${getAnswer('next_step', 'radio')}\n`;
+                reportText += `Желаемый формат продолжения: ${getAnswer('next_format', 'textarea')}\n`;
+
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = reportText;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                try {
+                    document.execCommand('copy');
+                    copyButton.textContent = '✅ Скопировано!';
+                } catch (err) {
+                    copyButton.textContent = 'Ошибка!';
+                    console.error('Ошибка копирования: ', err);
+                }
+                document.body.removeChild(tempTextarea);
+
+                setTimeout(() => {
+                    copyButton.textContent = 'Скопировать ответы для тренера';
+                }, 2500);
+            });
+
+            if ('ResizeObserver' in window) {
+                const observer = new ResizeObserver(entries => {
+                    if (entries.length > 0) {
+                        const height = entries[0].target.scrollHeight;
+                        document.body.style.height = height + 'px';
+                        document.documentElement.style.height = height + 'px';
+                    }
+                });
+                if (container) observer.observe(container);
+            } else {
+                const resizeFallback = () => {
+                    if(container) document.body.style.height = container.scrollHeight + 'px';
+                };
+                setInterval(resizeFallback, 300);
+                window.addEventListener('resize', resizeFallback);
+            }
+        });
+    </script>
+</body>
+</html>
